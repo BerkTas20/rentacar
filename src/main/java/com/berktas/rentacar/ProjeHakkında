@@ -1,0 +1,11 @@
+Project CarRental
+-Araç takip algoritması
+-Search Criteria = filtreleme işlemleri
+-Rest assured = Api testleri
+-Unit test = araç ekleme testi
+-JWT
+-Mysql workbench
+-WebSocket
+-Mqtt
+-Pageable
+-Arkaplan resimlerini ekleyip ve sıralayıp istediğini seçip login ekranında gösterme
