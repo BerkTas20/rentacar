@@ -47,28 +47,4 @@ public class CarControllerPostTest extends PlatformTestWithAuth {
                 .build();
         return request;
     }
-
-//    @Test
-//    public void testSave() throws Exception {
-//        SaveCarRequest saveCarRequest = new SaveCarRequest();
-//        saveCarRequest.setName("Test Car");
-//        saveCarRequest.setBrand("Test Brand");
-//
-//        CarDto savedCarDto = new CarDto();
-//        savedCarDto.setId(1L);
-//        savedCarDto.setName("Test Car");
-//        savedCarDto.setBrand("Test Brand");
-//        when(carService.save(saveCarRequest)).thenReturn(savedCarDto);
-//
-//        mockMvc.perform(post("/cars")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(objectMapper.writeValueAsString(saveCarRequest))
-//                        .accept(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$.id", is(1)))
-//                .andExpect(jsonPath("$.name", is("Test Car")))
-//                .andExpect(jsonPath("$.brand", is("Test Brand")));
-//
-//        verify(carService, times(1)).save(saveCarRequest);
-//    }
 }
