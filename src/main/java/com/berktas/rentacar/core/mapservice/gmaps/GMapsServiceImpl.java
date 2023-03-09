@@ -25,7 +25,7 @@ import java.util.Optional;
 @Service
 public class GMapsServiceImpl implements GMapsService {
 
-    private static final String APIKEY = "AIzaSyCEFnjpPxBARaB2s33qe8hdT6ahBB3HGRc";
+    private static final String APIKEY = "";
 
     GeoApiContext context;
 
