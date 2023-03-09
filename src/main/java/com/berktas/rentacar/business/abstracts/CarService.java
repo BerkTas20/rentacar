@@ -31,6 +31,6 @@ public interface CarService {
 
     void updateStatusByCar(Car car, RentStatus rentStatus);
 
-    Set<Car> findActiveVehicleListByIdList(List<Long> idList);
+    Set<Car> findActiveCarListByIdList(List<Long> idList);
 
 }

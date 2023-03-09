@@ -106,12 +106,12 @@ public class CarManager implements CarService {
     }
 
     @Override
-    public Set<Car> findActiveVehicleListByIdList(List<Long> idList) {
-        Set<Car> vehicleSet = carRepository.findByIdIn(idList);
-        vehicleSet = vehicleSet.stream().filter(vehicle -> vehicle.getCarStatus() == CarStatus.ACTIVE).collect(Collectors.toSet());
+    public Set<Car> findActiveCarListByIdList(List<Long> idList) {
+        Set<Car> carSet = carRepository.findByIdIn(idList);
+        carSet = carSet.stream().filter(car -> car.getCarStatus() == CarStatus.ACTIVE).collect(Collectors.toSet());
 
-        if (vehicleSet.isEmpty()) {
+        if (carSet.isEmpty()) {
             throw new EntityNotFoundException("Hiç Araç Bulunamamıştır.");
         }
-        return vehicleSet;    }
+        return carSet;    }
 }
