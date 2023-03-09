@@ -1,9 +1,7 @@
 package com.berktas.rentacar.controller.car;
 
 import com.berktas.rentacar.model.entity.embedded.Address;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.extern.jackson.Jacksonized;
 
 
@@ -11,6 +9,8 @@ import lombok.extern.jackson.Jacksonized;
 @Setter
 @Builder
 @Jacksonized
+@NoArgsConstructor
+@AllArgsConstructor
 public class SaveCarRequest {
     public String carName;
     public int modelYear;

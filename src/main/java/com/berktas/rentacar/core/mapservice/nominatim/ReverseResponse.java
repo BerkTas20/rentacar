@@ -1,4 +1,4 @@
-package com.berktas.rentacar.service.nominatim;
+package com.berktas.rentacar.core.mapservice.nominatim;
 
 import java.util.List;
 

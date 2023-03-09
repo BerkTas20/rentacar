@@ -2,7 +2,6 @@ package com.berktas.rentacar.core.websocket;
 
 
 
-import com.berktas.rentacar.business.abstracts.AuthorizationToViewVehicleInformationService;
 import com.berktas.rentacar.business.concretes.CarManager;
 import com.berktas.rentacar.business.concretes.UserDetailsManager;
 import com.berktas.rentacar.core.security.CustomUserDetails;
@@ -28,16 +27,14 @@ public class ChannelInterceptorImpl implements ChannelInterceptor {
     private final JwtTokenUtil jwtTokenUtil;
     private final CarManager carManager;
     private final UserDetailsManager userDetailsManager;
-    private final AuthorizationToViewVehicleInformationService authorizationToViewVehicleInformationService;
 
     public ChannelInterceptorImpl(JwtTokenUtil jwtTokenUtil,
                                   CarManager vehicleManager,
-                                  UserDetailsManager userDetailsManager,
-                                  AuthorizationToViewVehicleInformationService authorizationToViewVehicleInformationService) {
+                                  UserDetailsManager userDetailsManager
+                                   ) {
         this.jwtTokenUtil = jwtTokenUtil;
         this.carManager = vehicleManager;
         this.userDetailsManager = userDetailsManager;
-        this.authorizationToViewVehicleInformationService = authorizationToViewVehicleInformationService;
     }
 
 

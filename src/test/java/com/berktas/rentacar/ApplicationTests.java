@@ -1,4 +1,4 @@
-package com.berktas.rentacar.rest;
+package com.berktas.rentacar;
 
 import com.berktas.rentacar.rest.brand.BrandControllerDeleteTest;
 import com.berktas.rentacar.rest.brand.BrandControllerPostTest;

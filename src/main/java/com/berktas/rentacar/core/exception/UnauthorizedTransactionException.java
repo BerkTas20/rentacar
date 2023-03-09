@@ -1,17 +1,11 @@
 package com.berktas.rentacar.core.exception;
 
-import com.berktas.rentacar.core.exception.base.BaseException;
-import lombok.*;
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 @Getter
-@Setter
-
-public class UnauthorizedTransactionException extends BaseException {
-
+public class UnauthorizedTransactionException extends RuntimeException {
     public UnauthorizedTransactionException(String message, HttpStatus unauthorized) {
         super(message);
     }
-
-
 }

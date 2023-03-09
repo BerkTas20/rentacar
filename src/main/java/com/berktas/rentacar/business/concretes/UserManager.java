@@ -25,15 +25,8 @@ public class UserManager implements UserService {
 
     private final UserMapper userMapper;
 
-//    private final BCryptPasswordEncoder bCryptPasswordEncoder;
-
-//    private final DuplicateUsernameValidator duplicateUsernameValidator;
-
-
-
 
     public UserDto save(SaveUserRequest saveUserRequest) {
-//        duplicateUsernameValidator.validate(saveUserRequest.getUserName());
         User user = userRepository.save(User.create(saveUserRequest));
         return userMapper.entityToDto(user);
     }

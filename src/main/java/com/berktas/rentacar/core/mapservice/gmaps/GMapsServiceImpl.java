@@ -1,4 +1,4 @@
-package com.berktas.rentacar.service.gmaps;
+package com.berktas.rentacar.core.mapservice.gmaps;
 
 
 import com.berktas.rentacar.core.exception.AddressNotFoundException;

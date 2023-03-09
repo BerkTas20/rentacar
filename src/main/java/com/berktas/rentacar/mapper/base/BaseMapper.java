@@ -4,7 +4,6 @@ import org.mapstruct.IterableMapping;
 import org.mapstruct.Named;
 
 import java.util.List;
-import java.util.Set;
 
 
 public interface BaseMapper<Dto, Entity> {

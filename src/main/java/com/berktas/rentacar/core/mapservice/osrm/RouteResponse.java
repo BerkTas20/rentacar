@@ -1,4 +1,4 @@
-package com.berktas.rentacar.service.osrm;
+package com.berktas.rentacar.core.mapservice.osrm;
 
 import java.util.List;
 

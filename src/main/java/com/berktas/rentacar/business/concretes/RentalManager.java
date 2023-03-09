@@ -32,12 +32,9 @@ public class RentalManager implements RentalService {
     private final CustomerService customerService;
     private final CarService carService;
 
-//    private final SecurityContextUtil securityContextUtil;
-
-
 
     @Override
-    public RentalDetailDto rent(SaveRentalRequest saveRentalRequest,  Long carId) {
+    public RentalDetailDto rent(SaveRentalRequest saveRentalRequest, Long carId) {
         Car car = carService.findById(carId);
         User user = SpringContext.getCurrentUser();
         Rental rental = Rental.rent(saveRentalRequest, car, user);
@@ -49,17 +46,4 @@ public class RentalManager implements RentalService {
     public RentalDetailDto deliver(Long id, LocalDateTime localDate) {
         return null;
     }
-
-
 }
-//@Override
-//    public RentalDetailDto rent(SaveRentalRequest saveRentalRequest,  Long carId) {
-//        Car car = carService.findById(carId);
-//        User user = SpringContext.getCurrentUser();
-//        Rental rental = Rental.rent(saveRentalRequest, car, user);
-//        car.status = RentStatus.PASSIVE; //araç artık pasif, çünkü kiralandı.
-//        RentalDetailDto rentalDetailDto = rentalMapper.entityToDto(rentalRepository.save(rental));
-//        RentalDetailDto.set
-//
-//        return null;
-//    }

@@ -14,8 +14,6 @@ import java.util.TimeZone;
 public class RentacarApplication {
 
 	public static void main(String[] args) {
-		TimeZone.setDefault(TimeZone.getTimeZone("GMT+03:00"));
-		Locale.setDefault(Locale.ENGLISH);
 		SpringApplication.run(RentacarApplication.class, args);
 	}
 }

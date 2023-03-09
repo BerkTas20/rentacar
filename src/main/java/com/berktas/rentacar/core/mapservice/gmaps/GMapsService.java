@@ -1,4 +1,4 @@
-package com.berktas.rentacar.service.gmaps;
+package com.berktas.rentacar.core.mapservice.gmaps;
 
 import com.berktas.rentacar.model.dto.address.AddressDto;
 import com.berktas.rentacar.model.dto.address.PositionDto;

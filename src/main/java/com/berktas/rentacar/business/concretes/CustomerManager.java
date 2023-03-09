@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -39,6 +40,7 @@ public class CustomerManager implements CustomerService {
     public List<CustomerDto> getAll() {
         return customerMapper.entityListToDtoList(customerRepository.findAll());
     }
+
 
     @Override
     public void delete(Long id) {

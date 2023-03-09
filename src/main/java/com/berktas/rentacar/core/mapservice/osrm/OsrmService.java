@@ -1,6 +1,5 @@
-package com.berktas.rentacar.service.osrm;
+package com.berktas.rentacar.core.mapservice.osrm;
 
-import com.berktas.rentacar.model.entity.LatLng;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
@@ -42,34 +41,10 @@ public class OsrmService {
 
         return optimizedRouteResponse.body().trips.get(0).geometry.coordinates.stream().map(coordinate -> new LngLat(coordinate.get(0), coordinate.get(1))).collect(Collectors.toList());
     }
-    public LatLng match(LatLng oldPos, LatLng newPos) {
-        try {
-            Response<MatchResponse> resp = mApi.match(
-                    oldPos.getLng(),
-                    oldPos.getLat(),
-                    newPos.getLng(),
-                    newPos.getLat()).execute();
-            if (resp.code() == 200) {
-                for (MatchResponse.Tracepoint tracepoint : resp.body().tracepoints) {
-                    if (tracepoint.waypoint_index == 1) {
-                        LatLng result = new LatLng();
-                        result.setLng(tracepoint.location.get(0));
-                        result.setLat(tracepoint.location.get(1));
-                        return result;
-                    }
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
 
     private interface Api {
-        //String url = "https://osrm.aselsis.com/";
-        public static final String url = "https://osrm.aselsis.com.tr/";
+
+        public static final String url = "https://osrm./";
 
         @GET("trip/v1/driving/{coordinates}?source=first&destination=last&overview=full&geometries=geojson&steps=true")
         Call<OptimizedRouteResponse> optimizedRoute(@Path("coordinates") String coordinates

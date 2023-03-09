@@ -15,21 +15,14 @@ public class PlatformTestWithAuth extends PlatformTest {
     private TestUserUtility testUserUtility;
 
     private Admin admin;
-//    private User user;
-
     @PostConstruct
     public void beforeClassPlatformTestWithAuth(){
         admin = testUserUtility.getOrCreateTestAdmin();
-//        user = testUserUtility.getOrCreateTestUser();
     }
 
     public Admin getAdmin() {
         return testUserUtility.getOrCreateTestAdmin();
     }
-
-//    public User getUser(){
-//        return  user;
-//    }
 
 
 }

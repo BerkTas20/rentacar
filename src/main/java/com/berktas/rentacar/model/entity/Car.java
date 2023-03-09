@@ -28,7 +28,6 @@ public class Car extends AbstractTimestampEntity {
     @NotEmpty
     private String carName;
 
-//    @Pattern(regexp = "(19|20)[0-9][0-9]")
     private Integer modelYear;
 
     private double dailyPrice;
@@ -39,7 +38,6 @@ public class Car extends AbstractTimestampEntity {
     private LocalDateTime rentDate;
     private LocalDateTime returnDate;
 
-//    @Pattern(regexp = "^[A-Z]")
     private String licencePlate;
 
     private String imei;
@@ -76,9 +74,6 @@ public class Car extends AbstractTimestampEntity {
 
     private Integer idleTime = 0;
 
-    @Embedded
-    private LastLog lastLog;
-
     @Setter
     private LocalDateTime lastIgnitionOnDt;
 
@@ -93,7 +88,7 @@ public class Car extends AbstractTimestampEntity {
     @ManyToOne
     private Color color;
 
-    public static Car create(SaveCarRequest saveCarRequest){
+    public static Car create(SaveCarRequest saveCarRequest) {
         Car car = new Car();
         car.setCarName(saveCarRequest.getCarName());
         car.setDescription(saveCarRequest.getDescription());
@@ -105,7 +100,7 @@ public class Car extends AbstractTimestampEntity {
         return car;
     }
 
-    public Car update(UpdateCarRequest updateCarRequest){
+    public Car update(UpdateCarRequest updateCarRequest) {
         setCarName(updateCarRequest.getCarName());
         setDescription(updateCarRequest.getDescription());
         setModelYear(updateCarRequest.getModelYear());
@@ -114,78 +109,22 @@ public class Car extends AbstractTimestampEntity {
         setImei(updateCarRequest.getImei());
         return this;
     }
+
     @Override
     public int hashCode() {
         return this.getId().hashCode();
     }
-    public LastLog vehicleLogToLastLog(CarLog carLog) {
-
-        LastLog lastLog = new LastLog();
-        lastLog.setId(carLog.getId());
-        lastLog.setLatLng(carLog.getLatLng());
-        lastLog.setMqttLogDateTime(carLog.getMqttLogDateTime());
-        lastLog.setPackageNo(carLog.getPackageNo());
-        lastLog.setIgnition(carLog.getIgnition());
-        lastLog.setImmobilizer(carLog.getImmobilizer());
-        lastLog.setMsl(carLog.getMsl());
-        lastLog.setSpeedKmh(carLog.getSpeedKmh());
-        lastLog.setCourse(carLog.getCourse());
-        lastLog.setPdop(carLog.getPdop());
-        lastLog.setGnssInView(carLog.getGnssInView());
-        lastLog.setGnssUsed(carLog.getGnssUsed());
-        lastLog.setAddress(carLog.getAddress());
-        //lastLog.setTotalDistance(vehicleLog.getCurrentTotalDistance());
-        //lastLog.setDistanceSinceIgnition(vehicleLog.getDistanceSinceIgnition());
-        // lastLog.setDailyDistance(vehicleLog.getDailyDistance());
-
-        return lastLog;
-    }
-    public void calculateDistanceSinceIgnition(CarLog newLog, long distance) {
-
-        LastLog oldLog = newLog.getCar().getLastLog();
-        if(oldLog == null){
-            this.distanceSinceIgnition = 0;
-            return;
-        }
-
-        if(oldLog.getIgnition() == Boolean.FALSE && newLog.getIgnition() == Boolean.TRUE){
-            this.distanceSinceIgnition = 0;
-        }else if(newLog.getIgnition() == Boolean.TRUE){
-            this.distanceSinceIgnition = this.distanceSinceIgnition + distance;
-        }
-
-        /*
-        if (newLog.getIgnition()) {
-            this.distanceSinceIgnition = this.distanceSinceIgnition + distance;
-        } else {
-            this.distanceSinceIgnition = 0;
-        }*/
-    }
-    public void calculateDailyDistance(CarLog newLog, long distance) {
 
 
-        if (newLog.getCar().getLastLog() != null) {
-            ZonedDateTime lastDt = newLog.getCar().getLastLog().getMqttLogDateTime().atZone(ZoneId.of("UTC+03:00"));
-            ZonedDateTime newDt = newLog.getMqttLogDateTime().atZone(ZoneId.of("UTC+03:00"));
-
-            //if another day reset daily
-            if (newDt.getDayOfMonth() == lastDt.getDayOfMonth()) {
-                this.dailyDistance = this.dailyDistance + distance;
-            } else {
-                this.dailyDistance = 0;
-            }
-        } else {
-            this.dailyDistance = 0;
-        }
-
-    }
     public void updateVehicleStatus(RentStatus carStatus) {
         this.rentStatus = carStatus;
     }
+
     public Car updateImei(String imei) {
         this.imei = imei;
         return this;
     }
+
     public Car updateTotalDistance(Long totalDistance) {
         this.totalDistance = totalDistance;
         return this;
