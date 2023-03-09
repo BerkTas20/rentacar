@@ -81,7 +81,7 @@ public class CarManager implements CarService {
 
 
     @Override
-    public void updateStatusByVehicle(Car car, RentStatus rentStatus) {
+    public void updateStatusByCar(Car car, RentStatus rentStatus) {
 
         if (rentStatus == RentStatus.ACTIVE) {
 

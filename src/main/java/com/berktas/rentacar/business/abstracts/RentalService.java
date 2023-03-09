@@ -10,10 +10,5 @@ public interface RentalService {
     RentalDetailDto rent(SaveRentalRequest saveRentalRequest, Long carId);
 
     RentalDetailDto deliver(Long id, LocalDateTime localDate);
-//
-//    void delete(Long id);
-//
-//    List<RentalDetailDto> getAll();
-//
-//    RentalDetailDto getById(Long id);
+
 }

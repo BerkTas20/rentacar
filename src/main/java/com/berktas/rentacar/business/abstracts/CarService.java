@@ -29,9 +29,7 @@ public interface CarService {
 
     List<CarDto> getFilter(String brandName, String carName);
 
-//    void updateVehicleTotalDistance(Long carId, UpdateCarTotalDistanceDto updateCarTotalDistanceDto);
-
-    void updateStatusByVehicle(Car car, RentStatus rentStatus);
+    void updateStatusByCar(Car car, RentStatus rentStatus);
 
     Set<Car> findActiveVehicleListByIdList(List<Long> idList);
 
